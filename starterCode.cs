@@ -17,14 +17,34 @@ namespace ConsoleApp1
 
     class Manager
     {
-# todo: create an array with 100 students:
-        int[] studentList = new int[100];
+        // # todo: create an array with 100 students:
+        static Student[] studentList = new Student[100];
+        static string[] studentNames = new string[5];
+
+        private static void Initialize()
+        {
+            studentNames[0] = "JOE";
+            studentNames[1] = "ARRY";
+            studentNames[2] = "JOEL";
+            studentNames[3] = "LENA";
+            studentNames[4] = "MIC";
+        }
+
         public static void Run()
         {
+            int counter = 0;
+            Manager.Initialize();
             // use the Factory Design Pattern to generate 100 Students
             for (int i = 0; i < 100; i++)
-            {
-                new Student("JOE", "CSAT", "C333");
+            {   
+                // if I do not keep a reference to my objects visible to running program thread
+                // they will be garbage collected:
+
+                studentList[0] = new Student(studentNames[counter++], "CSAT");
+                if (counter > 4)
+                {
+                    counter = 0;
+                }
             }
             
         }
@@ -33,12 +53,11 @@ namespace ConsoleApp1
     {
         private string StudentName;
         private string programGroup;
-        private string StudentID;
+        private int StudentID;
 
-        public Student(string sName, string pGroup, string sid)
+        public Student(string sName, string pGroup)
         {
             this.StudentName = sName;
-            this.StudentID = sid;
             this.programGroup = pGroup;
         }
 
@@ -63,14 +82,9 @@ namespace ConsoleApp1
             this.programGroup = pGroup;
         }
 
-        public string getStudentID()
+        public int getStudentID()
         {
             return this.StudentID;
-        }
-
-        public void setStudentID(string stid)
-        {
-            this.StudentID = stid;
         }
 
     }
