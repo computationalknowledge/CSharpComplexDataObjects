@@ -11,15 +11,31 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Student s = new Student();
+            Manager.Run();
         }
     }
 
+    class Manager
+    {
+        public static void Run()
+        {
+            // use the Factory Design Pattern to generate 100 Students
+
+            new Student("JOE", "CSAT", "C333");
+        }
+    }
     class Student
     {
         private string StudentName;
         private string programGroup;
         private string StudentID;
+
+        public Student(string sName, string pGroup, string sid)
+        {
+            this.StudentName = sName;
+            this.StudentID = sid;
+            this.programGroup = pGroup;
+        }
 
         public string getStudentName()
         {
