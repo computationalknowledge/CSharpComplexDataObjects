@@ -2,7 +2,8 @@ using System;
 
 // Requirement: Create a simple College Enrollment System:
 // 1. Create a Student Class: student: name, id, programgroup {CSAT, MAD, ECE, CPCT}
-// #todo: create 20 student objects and put them into an Array!
+// #todo: create 20 student objects using Factory Method : anonymous object references
+// and put them into an Array!
 
 namespace ConsoleApp1
 {
@@ -10,7 +11,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Student s = new Student();
         }
     }
 
@@ -41,6 +42,15 @@ namespace ConsoleApp1
             this.programGroup = pGroup;
         }
 
+        public string getStudentID()
+        {
+            return this.StudentID;
+        }
+
+        public void setStudentID(string stid)
+        {
+            this.StudentID = stid;
+        }
 
     }
 }
