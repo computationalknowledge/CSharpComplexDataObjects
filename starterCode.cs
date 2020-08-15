@@ -17,11 +17,16 @@ namespace ConsoleApp1
 
     class Manager
     {
+# todo: create an array with 100 students:
+        int[] studentList = new int[100];
         public static void Run()
         {
             // use the Factory Design Pattern to generate 100 Students
-
-            new Student("JOE", "CSAT", "C333");
+            for (int i = 0; i < 100; i++)
+            {
+                new Student("JOE", "CSAT", "C333");
+            }
+            
         }
     }
     class Student
